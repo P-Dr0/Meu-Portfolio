@@ -196,7 +196,9 @@ export default function App() {
             <div className="mt-6 flex gap-6">
               <motion.a
                 href="mailto:phsa2004@gmail.com"
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg shadow-md hover:bg-blue-600 hover:text-white transition"
                 whileHover={{ scale: 1.05 }}
               >
                 Enviar Email
@@ -268,9 +270,7 @@ export default function App() {
                 whileHover={{ scale: 1.05, color: "#2563eb" }}
                 transition={{ type: "spring", stiffness: 300 }}
                 className="text-blue-600 hover:underline"
-              >
-                Ver mais
-              </motion.a>
+              ></motion.a>
             </motion.div>
           ))}
         </div>

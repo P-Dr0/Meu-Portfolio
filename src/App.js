@@ -322,7 +322,7 @@ export default function App() {
             <Github />
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/pedro-santos-364103283"
+            href="www.linkedin.com/in/pedro-henrique-dos-santos-araujo-364103283"
             target="_blank"
             rel="noreferrer"
             {...linkAnim}

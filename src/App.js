@@ -20,7 +20,7 @@ const projetos = [
     descricao: "Site de portfólio moderno com React e Tailwind.",
     link: "https://github.com/P-Dr0/portfolio-react",
     tags: ["React", "TailwindCSS"],
-    imagem: "/img/portfolio.png",
+    imagem: "/img/portfolio-react.png",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const projetos = [
     descricao: "Loja online com backend em Node.js e MongoDB.",
     link: "https://github.com/P-Dr0/api-node",
     tags: ["Node.js", "Express", "MongoDB"],
-    imagem: "/img/ecommerce.png",
+    imagem: "/img/e-commerce-node.png",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const projetos = [
     descricao: "Painel administrativo com gráficos e autenticação.",
     link: "https://github.com/P-Dr0/dashboard-next",
     tags: ["Next.js", "Chart.js"],
-    imagem: "/img/dashboard.png",
+    imagem: "/img/dashboard-next.png",
   },
   {
     id: 4,
@@ -152,7 +152,7 @@ export default function App() {
         </h3>
         <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
           <motion.img
-            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a2?auto=format&fit=crop&w=300&q=80"
+            src="/img/perfil.png"
             alt="Pedro Santos"
             className="rounded-full w-48 h-48 object-cover shadow-lg border-4 border-blue-500"
             whileHover={{ scale: 1.05 }}

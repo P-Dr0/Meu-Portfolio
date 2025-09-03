@@ -46,14 +46,6 @@ const projetos = [
     tags: ["React", "TailwindCSS"],
     imagem: "/img/blog.png",
   },
-  {
-    id: 5,
-    titulo: "Landing Page Startup",
-    descricao: "Landing page responsiva para startup.",
-    link: "https://github.com/P-Dr0/landing-page",
-    tags: ["React", "TailwindCSS"],
-    imagem: "/img/landing.png",
-  },
 ];
 
 export default function App() {
@@ -159,6 +151,72 @@ export default function App() {
           >
             Desenvolvedor Frontend criando experiências modernas e responsivas.
           </motion.p>
+          <motion.div className="mt-6 flex gap-6">
+            <motion.a
+              href="https://github.com/P-Dr0"
+              target="_blank"
+              rel="noreferrer"
+              {...linkAnim}
+            >
+              <Github size={32} />
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/P-Dr0"
+              target="_blank"
+              rel="noreferrer"
+              {...linkAnim}
+            >
+              <Linkedin size={32} />
+            </motion.a>
+            <motion.a href="mailto:phsa2004@gmail.com" {...linkAnim}>
+              <Mail size={32} />
+            </motion.a>
+          </motion.div>
+        </motion.section>
+
+        {/* Sobre */}
+        <motion.section
+          id="sobre"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-5xl mx-auto py-16 px-6"
+        >
+          <h3 className="text-4xl font-bold mb-8 text-center text-blue-700 dark:text-blue-400">
+            Sobre Mim
+          </h3>
+          <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+            <motion.img
+              src="/img/perfil.png"
+              alt="Pedro Santos"
+              loading="lazy"
+              className="rounded-full w-48 h-48 object-cover shadow-lg border-4 border-blue-500"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            />
+            <div className="flex-1 space-y-4">
+              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                Olá! Sou{" "}
+                <span className="font-semibold text-blue-600 dark:text-blue-400">
+                  Pedro Santos
+                </span>
+                , desenvolvedor Frontend apaixonado por criar interfaces
+                modernas e responsivas usando{" "}
+                <span className="font-semibold">React</span>,{" "}
+                <span className="font-semibold">TailwindCSS</span> e tecnologias
+                modernas.
+              </p>
+              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                Tenho experiência em construção de{" "}
+                <span className="font-semibold">
+                  portfólios, dashboards e APIs
+                </span>
+                , sempre focando na experiência do usuário e na performance do
+                site.
+              </p>
+            </div>
+          </div>
         </motion.section>
 
         {/* Projetos */}
@@ -228,14 +286,6 @@ export default function App() {
                 className="rounded-lg mb-4"
               />
               <p>{projetoSelecionado.descricao}</p>
-              <a
-                href={projetoSelecionado.link}
-                target="_blank"
-                rel="noreferrer"
-                className="text-blue-600 hover:underline block mt-4"
-              >
-                Ver no GitHub
-              </a>
               <button
                 onClick={() => setProjetoSelecionado(null)}
                 className="mt-6 px-4 py-2 bg-blue-600 text-white rounded-lg"
@@ -245,6 +295,70 @@ export default function App() {
             </motion.div>
           </motion.div>
         )}
+
+        {/* Hospedagem */}
+        <motion.section
+          id="hospedagem"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl mx-auto py-16 px-6"
+        >
+          <h3 className="text-3xl font-semibold mb-6">Hospedagem e Domínio</h3>
+          <p className="mb-4">
+            A hospedagem garante que seu site esteja sempre online, enquanto o
+            domínio é o endereço único que permite que qualquer pessoa acesse
+            seu conteúdo. Plataformas como <strong>Vercel</strong> e{" "}
+            <strong>Netlify</strong> oferecem deploy contínuo integrado com
+            GitHub, otimizações automáticas e SSL incluso.
+          </p>
+          <p>
+            Registrar um domínio personalizado transmite profissionalismo e
+            facilita o compartilhamento do portfólio com empresas e clientes.
+          </p>
+        </motion.section>
+
+        {/* Contato */}
+        <motion.section
+          id="contato"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
+          className="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-blue-500 to-indigo-600 text-white"
+        >
+          <h3 className="text-3xl font-semibold mb-6">Contato</h3>
+          <p className="mb-6">
+            Entre em contato comigo através das redes abaixo:
+          </p>
+          <div className="flex justify-center gap-6 text-2xl">
+            <motion.a
+              href="https://github.com/P-Dr0"
+              target="_blank"
+              rel="noreferrer"
+              {...linkAnim}
+            >
+              <Github />
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/P-Dr0"
+              target="_blank"
+              rel="noreferrer"
+              {...linkAnim}
+            >
+              <Linkedin />
+            </motion.a>
+            <motion.a href="mailto:phsa2004@gmail.com" {...linkAnim}>
+              <Mail />
+            </motion.a>
+          </div>
+        </motion.section>
+
+        {/* Footer */}
+        <footer className="bg-white dark:bg-gray-800 text-center py-6 shadow-inner">
+          <p>© {new Date().getFullYear()} - Desenvolvido por Pedro Santos</p>
+        </footer>
       </div>
     </div>
   );

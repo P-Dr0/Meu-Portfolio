@@ -6,3 +6,19 @@
 body {
   @apply bg-gray-100 text-gray-900;
 }
+
+/* Scroll suave em todas as âncoras */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Suporte ao dark mode */
+:root {
+  color-scheme: light dark;
+}
+
+/* Transição suave ao trocar de tema */
+body,
+html {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}

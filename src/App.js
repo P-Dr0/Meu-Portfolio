@@ -18,7 +18,6 @@ const projetos = [
     id: 1,
     titulo: "Portfolio React",
     descricao: "Site de portfólio moderno com React e Tailwind.",
-    link: "https://github.com/P-Dr0/portfolio-react",
     tags: ["React", "TailwindCSS"],
     imagem: "/img/portfolio-react.png",
   },
@@ -26,7 +25,6 @@ const projetos = [
     id: 2,
     titulo: "E-commerce Node.js",
     descricao: "Loja online com backend em Node.js e MongoDB.",
-    link: "https://github.com/P-Dr0/api-node",
     tags: ["Node.js", "Express", "MongoDB"],
     imagem: "/img/e-commerce-node.png",
   },
@@ -34,7 +32,6 @@ const projetos = [
     id: 3,
     titulo: "Dashboard Next.js",
     descricao: "Painel administrativo com gráficos e autenticação.",
-    link: "https://github.com/P-Dr0/dashboard-next",
     tags: ["Next.js", "Chart.js"],
     imagem: "/img/dashboard-next.png",
   },
@@ -42,7 +39,6 @@ const projetos = [
     id: 4,
     titulo: "Blog Pessoal",
     descricao: "Blog moderno com posts e comentários em React.",
-    link: "https://github.com/P-Dr0/blog-react",
     tags: ["React", "TailwindCSS"],
     imagem: "/img/blog.png",
   },
@@ -161,7 +157,7 @@ export default function App() {
               <Github size={32} />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/P-Dr0"
+              href="https://www.linkedin.com/in/pedro-henrique-dos-santos-araujo-364103283"
               target="_blank"
               rel="noreferrer"
               {...linkAnim}
@@ -342,7 +338,7 @@ export default function App() {
               <Github />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/P-Dr0"
+              href="https://www.linkedin.com/in/pedro-henrique-dos-santos-araujo-364103283"
               target="_blank"
               rel="noreferrer"
               {...linkAnim}

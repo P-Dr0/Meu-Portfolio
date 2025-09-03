@@ -306,7 +306,7 @@ export default function App() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7 }}
-        className="max-w-4xl mx-auto py-16 px-6 text-center"
+        className="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-blue-500 to-indigo-600 text-white"
       >
         <h3 className="text-3xl font-semibold mb-6">Contato</h3>
         <p className="mb-6">

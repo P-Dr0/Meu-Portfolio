@@ -110,7 +110,14 @@ export default function App() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex gap-4">
-            {["sobre", "projetos", "hospedagem", "contato"].map((sec, i) => (
+            {[
+              "sobre",
+              "timeline",
+              "skills",
+              "projetos",
+              "hospedagem",
+              "contato",
+            ].map((sec, i) => (
               <motion.a
                 key={i}
                 href={`#${sec}`}

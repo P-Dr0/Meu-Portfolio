@@ -18,12 +18,12 @@ export default function Contato() {
       transition={{ duration: 0.7 }}
       className="relative flex flex-col items-center justify-center text-center py-24 overflow-hidden"
     >
-      {/* Fundo gradiente com formas suaves */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-24 -left-24 w-72 h-72 bg-blue-400/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 -right-24 w-72 h-72 bg-purple-400/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 opacity-80"></div>
-      </div>
+      {/* Fundo gradiente principal */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700"></div>
+
+      {/* Formas translúcidas com blur e animação pulse */}
+      <div className="absolute -top-24 -left-24 w-72 h-72 bg-blue-400/30 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 -right-24 w-72 h-72 bg-purple-400/30 rounded-full blur-3xl animate-pulse"></div>
 
       {/* Conteúdo */}
       <h3 className="text-4xl font-extrabold mb-6 relative z-10 text-white drop-shadow-md">

@@ -11,11 +11,13 @@ export default function Hero() {
 
   return (
     <motion.section
-      className="relative flex flex-col items-center justify-center text-center py-28 px-6 overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white"
+      className="relative flex flex-col items-center justify-center text-center py-28 px-6 overflow-hidden
+             bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
     >
+      {/* Efeito de fundo com blur e shapes */}
       <div className="absolute inset-0">
         <div className="absolute -top-24 -left-24 w-72 h-72 bg-blue-400/30 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 -right-24 w-72 h-72 bg-purple-400/30 rounded-full blur-3xl animate-pulse"></div>
@@ -44,6 +46,7 @@ export default function Hero() {
         e <span className="font-semibold text-blue-300">responsivas</span>.
       </motion.p>
 
+      {/* Social links */}
       <motion.div
         className="mt-10 flex gap-8 relative z-10"
         initial={{ opacity: 0 }}
@@ -57,7 +60,7 @@ export default function Hero() {
           whileHover={{ scale: 1.2 }}
           className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition shadow-lg"
         >
-          <Github size={28} />
+          <Github size={28} className="text-black dark:text-white" />
         </motion.a>
         <motion.a
           href="https://www.linkedin.com/in/pedro-henrique-dos-santos-araujo-364103283"
@@ -66,14 +69,14 @@ export default function Hero() {
           whileHover={{ scale: 1.2 }}
           className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition shadow-lg"
         >
-          <Linkedin size={28} />
+          <Linkedin size={28} className="text-black dark:text-white" />
         </motion.a>
         <motion.a
           href="mailto:phsa2004@gmail.com"
           whileHover={{ scale: 1.2 }}
           className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition shadow-lg"
         >
-          <Mail size={28} />
+          <Mail size={28} className="text-black dark:text-white" />
         </motion.a>
       </motion.div>
     </motion.section>

@@ -192,90 +192,130 @@ export default function App() {
 
         {/* Hero */}
         <motion.section
-          className="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-blue-500 to-indigo-600 text-white"
+          className="relative flex flex-col items-center justify-center text-center py-28 px-6 overflow-hidden
+             bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
+          {/* Efeito de fundo com blur e shapes */}
+          <div className="absolute inset-0">
+            <div className="absolute -top-24 -left-24 w-72 h-72 bg-blue-400/30 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-0 -right-24 w-72 h-72 bg-purple-400/30 rounded-full blur-3xl animate-pulse"></div>
+          </div>
+
           <motion.h2
-            className="text-5xl font-bold mb-4"
+            className="text-5xl md:text-6xl font-extrabold mb-6 relative z-10"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            Olá, eu sou Pedro Santos
+            Olá, eu sou{" "}
+            <span className="text-blue-300 drop-shadow-md">Pedro Santos</span>
           </motion.h2>
+
           <motion.p
-            className="text-xl max-w-xl"
+            className="text-lg md:text-2xl max-w-2xl relative z-10 text-gray-100"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
-            Desenvolvedor Frontend criando experiências modernas e responsivas.
+            Desenvolvedor Frontend apaixonado por criar{" "}
+            <span className="font-semibold text-blue-300">
+              experiências modernas
+            </span>{" "}
+            e <span className="font-semibold text-blue-300">responsivas</span>.
           </motion.p>
-          <motion.div className="mt-6 flex gap-6">
+
+          {/* Social links */}
+          <motion.div
+            className="mt-10 flex gap-8 relative z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+          >
             <motion.a
               href="https://github.com/P-Dr0"
               target="_blank"
               rel="noreferrer"
-              {...linkAnim}
+              whileHover={{ scale: 1.2 }}
+              className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition shadow-lg"
             >
-              <Github size={32} />
+              <Github size={28} />
             </motion.a>
             <motion.a
               href="https://www.linkedin.com/in/pedro-henrique-dos-santos-araujo-364103283"
               target="_blank"
               rel="noreferrer"
-              {...linkAnim}
+              whileHover={{ scale: 1.2 }}
+              className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition shadow-lg"
             >
-              <Linkedin size={32} />
+              <Linkedin size={28} />
             </motion.a>
-            <motion.a href="mailto:phsa2004@gmail.com" {...linkAnim}>
-              <Mail size={32} />
+            <motion.a
+              href="mailto:phsa2004@gmail.com"
+              whileHover={{ scale: 1.2 }}
+              className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition shadow-lg"
+            >
+              <Mail size={28} />
             </motion.a>
           </motion.div>
         </motion.section>
 
-        {/* Sobre */}
+        {/* 🔥 Seção Sobre Mim */}
         <motion.section
           id="sobre"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
-          className="max-w-5xl mx-auto py-16 px-6"
+          className="max-w-5xl mx-auto py-20 px-6 relative"
         >
-          <h3 className="text-4xl font-bold mb-8 text-center text-blue-700 dark:text-blue-400">
+          <h3 className="text-4xl font-bold mb-12 text-center text-blue-300 drop-shadow-md">
             Sobre Mim
           </h3>
-          <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+
+          <div
+            className="flex flex-col md:flex-row gap-10 items-center md:items-start 
+               backdrop-blur-lg bg-white/40 dark:bg-gray-900/40 
+               shadow-xl rounded-2xl p-8 border border-white/20 dark:border-gray-700/40"
+          >
+            {/* Foto */}
             <motion.img
               src="/img/perfil.png"
               alt="Pedro Santos"
               loading="lazy"
-              className="rounded-full w-48 h-48 object-cover shadow-lg border-4 border-blue-500"
+              className="rounded-full w-48 h-48 object-cover shadow-lg border-4 border-blue-300"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
-            <div className="flex-1 space-y-4">
-              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+
+            {/* Texto */}
+            <div className="flex-1 space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-100">
+              <p>
                 Olá! Sou{" "}
-                <span className="font-semibold text-blue-600 dark:text-blue-400">
+                <span className="font-semibold text-blue-300">
                   Pedro Santos
                 </span>
                 , desenvolvedor Frontend apaixonado por criar interfaces
                 modernas e responsivas usando{" "}
-                <span className="font-semibold">React</span>,{" "}
-                <span className="font-semibold">TailwindCSS</span> e tecnologias
-                modernas.
+                <span className="font-semibold text-blue-300">React</span>,{" "}
+                <span className="font-semibold text-blue-300">TailwindCSS</span>{" "}
+                e tecnologias atuais.
               </p>
-              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+
+              <p>
                 Tenho experiência em construção de{" "}
-                <span className="font-semibold">
+                <span className="font-semibold text-blue-300">
                   portfólios, dashboards e APIs
                 </span>
-                , sempre focando na experiência do usuário e na performance do
-                site.
+                , sempre focando na{" "}
+                <span className="font-semibold text-blue-300">
+                  experiência do usuário
+                </span>
+                e na{" "}
+                <span className="font-semibold text-blue-300">performance</span>
+                do site.
               </p>
             </div>
           </div>

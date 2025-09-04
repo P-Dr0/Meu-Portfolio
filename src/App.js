@@ -153,7 +153,14 @@ export default function App() {
         {/* Mobile menu */}
         {menuOpen && (
           <nav className="flex flex-col items-center gap-4 bg-white dark:bg-gray-800 py-4 md:hidden shadow-md">
-            {["sobre", "projetos", "hospedagem", "contato"].map((sec, i) => (
+            {[
+              "sobre",
+              "timeline",
+              "skills",
+              "projetos",
+              "hospedagem",
+              "contato",
+            ].map((sec, i) => (
               <a
                 key={i}
                 href={`#${sec}`}

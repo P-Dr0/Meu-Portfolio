@@ -54,12 +54,12 @@ export default function Projetos({ setProjetoSelecionado }) {
     <section id="projetos" className="bg-gray-200 dark:bg-gray-800 py-16 px-6">
       <h3 className="text-3xl font-semibold mb-6 text-center">Projetos</h3>
 
+      {/* Filtros */}
       <div className="flex justify-center gap-2 mb-8 flex-wrap">
         {tecnologias.map((tech, i) => (
           <motion.button
             key={i}
             onClick={() => setFiltro(tech)}
-            layout
             whileHover={{ scale: 1.05 }}
             className={`px-4 py-2 rounded-full ${
               filtro === tech
@@ -72,13 +72,14 @@ export default function Projetos({ setProjetoSelecionado }) {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {/* Grid de projetos */}
+      <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
         {projetosFiltrados.map((proj) => (
           <motion.div
             key={proj.id}
             onClick={() => setProjetoSelecionado(proj)}
             whileHover={{ scale: 1.05 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-4 cursor-pointer"
+            className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-4 cursor-pointer max-w-sm w-full"
           >
             <img
               src={proj.imagem}

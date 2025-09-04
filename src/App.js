@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
 
@@ -11,6 +11,32 @@ const tecnologias = [
   "Next.js",
   "MongoDB",
   "Chart.js",
+];
+
+const skills = [
+  { name: "React", level: 90, icon: "/icons/react.svg" },
+  { name: "TailwindCSS", level: 85, icon: "/icons/tailwind.svg" },
+  { name: "Node.js", level: 80, icon: "/icons/node.svg" },
+  { name: "Next.js", level: 75, icon: "/icons/nextjs.svg" },
+  { name: "MongoDB", level: 70, icon: "/icons/mongo.svg" },
+  { name: "JavaScript", level: 95, icon: "/icons/javascript.svg" },
+  { name: "TypeScript", level: 80, icon: "/icons/typescript.svg" },
+  { name: "Git", level: 85, icon: "/icons/git.svg" },
+  { name: "Docker", level: 65, icon: "/icons/docker.svg" },
+];
+
+const timeline = [
+  {
+    year: "2024",
+    title: "Desenvolvedor Frontend",
+    desc: "Projeto de portfólio e dashboards.",
+  },
+  {
+    year: "2023",
+    title: "Formação React",
+    desc: "Cursos de React e TailwindCSS.",
+  },
+  { year: "2022", title: "Início Faculdade", desc: "Ciência da Computação." },
 ];
 
 const projetos = [
@@ -59,6 +85,15 @@ export default function App() {
     hover: { scale: 1.2, color: "#2563eb" },
     transition: { type: "spring", stiffness: 300 },
   };
+
+  // Persistência do tema
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) setDarkMode(savedTheme === "dark");
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
 
   return (
     <div className={`${darkMode ? "dark" : ""}`}>
@@ -215,6 +250,63 @@ export default function App() {
           </div>
         </motion.section>
 
+        {/* 🔥 Seção Timeline */}
+        <section
+          id="timeline"
+          className="py-16 px-6 bg-gray-200 dark:bg-gray-800"
+        >
+          <h3 className="text-3xl font-bold text-center mb-10">
+            Experiência & Formação
+          </h3>
+          <div className="relative border-l-4 border-blue-600 dark:border-blue-400 max-w-3xl mx-auto">
+            {timeline.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="mb-10 ml-6"
+              >
+                <div className="absolute w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full -left-2 top-1" />
+                <h4 className="text-xl font-bold">
+                  {item.year} - {item.title}
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* 🔥 Seção Skills */}
+        <section id="skills" className="py-16 px-6 max-w-5xl mx-auto">
+          <h3 className="text-3xl font-bold text-center mb-10">Habilidades</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-center">
+            {skills.map((skill, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.1 }}
+                className="flex flex-col items-center"
+              >
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="w-16 h-16 mb-2"
+                />
+                <p className="font-semibold">{skill.name}</p>
+                <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2 mt-2">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    transition={{ duration: 1 }}
+                    className="bg-blue-600 h-2 rounded-full"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
         {/* Projetos */}
         <section
           id="projetos"
@@ -356,6 +448,19 @@ export default function App() {
           <p>© {new Date().getFullYear()} - Desenvolvido por Pedro Santos</p>
         </footer>
       </div>
+      {/* 🔥 Analytics */}
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"
+      ></script>
+      <script>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XXXXXXX');
+        `}
+      </script>
     </div>
   );
 }

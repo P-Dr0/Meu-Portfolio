@@ -311,10 +311,10 @@ export default function App() {
                 </span>
                 , sempre focando na{" "}
                 <span className="font-semibold text-blue-300">
-                  experiência do usuário
+                  experiência do usuário{" "}
                 </span>
                 e na{" "}
-                <span className="font-semibold text-blue-300">performance</span>
+                <span className="font-semibold text-blue-300">performance</span>{" "}
                 do site.
               </p>
             </div>

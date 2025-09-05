@@ -1,13 +1,22 @@
-// src/components/Footer.js
 import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="relative text-center py-6 backdrop-blur-md bg-white/30 dark:bg-gray-800/30 border-t border-white/20 dark:border-gray-700/40">
-      {/* Copyright */}
-      <p className="text-gray-900 dark:text-gray-100 font-semibold drop-shadow-sm">
-        © {new Date().getFullYear()} - Desenvolvido por Pedro Santos
-      </p>
+    <footer
+      className="relative text-center py-6 backdrop-blur-md bg-white/30 dark:bg-gray-800/30 border-t border-white/20 dark:border-gray-700/40"
+      aria-label="Rodapé"
+    >
+      {/* Copyright + logo */}
+      <div className="flex justify-center items-center gap-2">
+        <p className="text-gray-900 dark:text-gray-100 font-semibold drop-shadow-sm">
+          © {new Date().getFullYear()} - Desenvolvido por Pedro Santos
+        </p>
+        <img
+          src="/favicon.ico"
+          alt="Logo"
+          className="w-5 h-5 rounded-full shadow-sm"
+        />
+      </div>
 
       {/* Créditos das tecnologias + frase de assinatura com divisão */}
       <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-2">

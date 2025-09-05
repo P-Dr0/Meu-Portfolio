@@ -1,71 +1,108 @@
 // src/components/Timeline.js
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
+import { GraduationCap, Laptop } from "lucide-react";
 
 const timeline = [
   {
-    year: "2024",
+    year: "2025",
     title: "Desenvolvedor Frontend",
     desc: "Projeto de portfólio e dashboards.",
+    type: "work",
+  },
+  {
+    year: "2024",
+    title: "Formação React",
+    desc: "Cursos de React e TailwindCSS.",
+    type: "study",
   },
   {
     year: "2023",
-    title: "Formação React",
-    desc: "Cursos de React e TailwindCSS.",
+    title: "Início Faculdade",
+    desc: "Engenharia de Software.",
+    type: "study",
   },
-  { year: "2022", title: "Início Faculdade", desc: "Engenharia de Software." },
 ];
 
-export default function Timeline() {
+function getIcon(type) {
+  switch (type) {
+    case "work":
+      return <Laptop className="w-4 h-4 text-white" />;
+    case "study":
+      return <GraduationCap className="w-4 h-4 text-white" />;
+    default:
+      return null;
+  }
+}
+
+function TimelineItem({ year, title, desc, type }) {
   return (
-    <section id="timeline" className="py-16 px-6 bg-gray-200 dark:bg-gray-800">
+    <motion.li
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ type: "spring", stiffness: 80, damping: 15, duration: 0.6 }}
+      className="relative flex flex-col items-center gap-4 mb-12"
+      aria-label={`${year} - ${title}`}
+    >
+      {/* Ponto com ícone */}
+      <div className="relative z-10 flex items-center justify-center w-8 h-8 bg-blue-500 dark:bg-blue-400 rounded-full shadow-md border border-blue-300 dark:border-blue-500">
+        {getIcon(type)}
+      </div>
+
+      {/* Card centralizado */}
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-md p-4 rounded-xl shadow-md border border-white/30 dark:border-gray-700/40 w-full max-w-md text-center"
+      >
+        <h4 className="text-lg font-semibold mb-1">
+          <span className="text-blue-600 dark:text-blue-400">{year}</span> —{" "}
+          {title}
+        </h4>
+        <p className="text-gray-700 dark:text-gray-300 text-sm">{desc}</p>
+      </motion.div>
+    </motion.li>
+  );
+}
+
+export default function Timeline() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 100px", "end end"],
+  });
+
+  return (
+    <section
+      id="timeline"
+      className="py-16 px-6 bg-gray-200 dark:bg-gray-800"
+      aria-label="Linha do tempo de experiência e formação"
+    >
       <h3 className="text-3xl font-bold text-center mb-10">
         Experiência & Formação
       </h3>
 
-      <div className="relative max-w-5xl mx-auto">
-        {/* Linha vertical central */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-blue-300 dark:border-blue-400"></div>
+      <div ref={ref} className="relative max-w-4xl mx-auto">
+        {/* Linha fixa mais sutil */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-blue-300 dark:bg-blue-500 rounded"></div>
 
-        {timeline.map((item, i) => {
-          const isLeft = i % 2 === 0;
-          return (
-            <motion.div
+        {/* Linha animada mais sutil */}
+        <motion.div
+          style={{ scaleY: scrollYProgress }}
+          className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 origin-top bg-blue-500 dark:bg-blue-400 rounded"
+        />
+
+        <ol className="relative flex flex-col items-center pl-0">
+          {timeline.map((item, i) => (
+            <TimelineItem
               key={i}
-              initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{
-                type: "spring",
-                stiffness: 80,
-                damping: 15,
-                duration: 0.8,
-              }}
-              className="mb-10 flex justify-center w-full"
-            >
-              <div
-                className={`flex flex-col md:flex-row items-center w-full md:w-auto ${
-                  isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
-              >
-                {/* Ponto azul */}
-                <div className="flex justify-center md:justify-start w-full md:w-auto">
-                  <div className="w-6 h-6 bg-blue-400/70 dark:bg-blue-500 rounded-full shadow-md border border-blue-300 dark:border-blue-400"></div>
-                </div>
-
-                {/* Card de conteúdo */}
-                <div className="mt-4 md:mt-0 md:mx-6 bg-white/50 dark:bg-gray-900/50 backdrop-blur-lg p-6 rounded-2xl shadow-xl border border-white/20 dark:border-gray-700/40 w-full md:w-3/4">
-                  <h4 className="text-xl font-bold">
-                    {item.year} - {item.title}
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
+              year={item.year}
+              title={item.title}
+              desc={item.desc}
+              type={item.type}
+            />
+          ))}
+        </ol>
       </div>
     </section>
   );

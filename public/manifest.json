@@ -7,9 +7,9 @@
       "sizes": "64x64 32x32 24x24 16x16"
     },
     {
-      "src": "urubu.png",
+      "src": "urubu2.png",
       "type": "image/png",
-      "sizes": "2000x2000"
+      "sizes": "1024x1024"
     }
   ],
   "start_url": ".",

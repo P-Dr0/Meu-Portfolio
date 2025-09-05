@@ -29,7 +29,7 @@ export default function App() {
   // Google Analytics
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-V1G8FM73L2";
     script.async = true;
     document.body.appendChild(script);
 
@@ -38,7 +38,7 @@ export default function App() {
       window.dataLayer.push(arguments);
     }
     gtag("js", new Date());
-    gtag("config", "G-XXXXXXX");
+    gtag("config", "G-V1G8FM73L2");
 
     return () => document.body.removeChild(script);
   }, []);

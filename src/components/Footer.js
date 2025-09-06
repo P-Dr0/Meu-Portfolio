@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 
 export default function Footer() {
+  const audioRef = useRef(null);
+
+  function handleLogoClick() {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0; // reinicia o som caso já esteja tocando
+      audioRef.current.play();
+    }
+  }
+
   return (
     <footer
       className="relative text-center py-6 backdrop-blur-md bg-white/30 dark:bg-gray-800/30 border-t border-white/20 dark:border-gray-700/40"
@@ -14,8 +23,11 @@ export default function Footer() {
         <img
           src="/favicon.ico"
           alt="Logo"
-          className="w-5 h-5 rounded-full shadow-sm"
+          className="w-5 h-5 rounded-full shadow-sm cursor-pointer"
+          onClick={handleLogoClick}
         />
+        {/* Áudio do Mengooo */}
+        <audio ref={audioRef} src="/mengo-sound.mp3" preload="auto" />
       </div>
 
       {/* Créditos das tecnologias + frase de assinatura com divisão */}
@@ -37,3 +49,6 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+
